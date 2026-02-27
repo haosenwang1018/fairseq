@@ -57,7 +57,7 @@ if __name__ == "__main__":
             hypos = fr.readlines()
             outputs = reorder_decode(hypos)
             fw.writelines([re.sub("\(\S+\)$", "", hypo).strip() + "\n" for ii,hypo in outputs])
-    except:
+    except Exception:
         print(f"Something went wrong with {lang}. If {lang} is not supported by the ASR model, then this is expected and OK. If it is supported, then something else has gone wrong unexpectedly.", file=sys.stderr)
         with open(dst + "/hypo.word.reord", "w") as fw:
             fw.writelines(["\n"] * len(open(dump+"/ids.txt", "r").readlines()))

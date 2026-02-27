@@ -178,7 +178,7 @@ if __name__ == "__main__":
                 sample = utils.move_to_cuda(sample) if use_cuda else sample
                 try:
                     latent = model.forward_latent(**sample["net_input"])
-                except:
+                except Exception:
                     latent = None
                 logit = model.forward(**sample["net_input"])
                 logit_lsm = torch.log_softmax(logit.squeeze(), dim=-1)

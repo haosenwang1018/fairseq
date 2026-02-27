@@ -79,7 +79,7 @@ if __name__ == "__main__":
             try:
                 _, alphas, _ = falign_ext.falign(emissions, torch.tensor(token_sequence, device=device).int(), False)
                 aligned_alpha = max(alphas[-1]).item()
-            except:
+            except Exception:
                 aligned_alpha = math.log(0.000000001)
 
             with open(args.dst + "/uasr_score", "a") as f1:

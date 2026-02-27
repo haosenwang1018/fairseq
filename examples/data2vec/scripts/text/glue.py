@@ -29,6 +29,6 @@ for run, tasks in grouped.items():
     avg_norte = sum(float(v) for k,v in tasks.items() if k != 'rte') / (len(tasks) -1)
     try:
         print(f"{tasks['cola']}\t{tasks['qnli']}\t{tasks['mrpc']}\t{tasks['rte']}\t{tasks['sst_2']}\t{avg:.2f}\t{avg_norte:.2f}")
-    except:
+    except Exception:
         print(tasks)
     print()

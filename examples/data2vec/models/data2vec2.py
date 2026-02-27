@@ -275,7 +275,7 @@ class Data2VecMultiModel(BaseFairseqModel):
             from apex.normalization import FusedLayerNorm
 
             fn = FusedLayerNorm
-        except:
+        except Exception:
             fn = nn.LayerNorm
 
         if isinstance(m, nn.Linear):

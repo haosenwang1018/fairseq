@@ -39,7 +39,7 @@ def main(args, print_output):
     def extract_metric(s, metric):
         try:
             j = json.loads(s)
-        except:
+        except Exception:
             return None
         if args.epoch is not None and ('epoch' not in j or j['epoch'] != args.epoch):
             return None
@@ -113,13 +113,13 @@ def main(args, print_output):
                         idx = line.index("{")
                         line = line[idx:]
                         line_json = json.loads(line)
-                    except:
+                    except Exception:
                         continue
                     if prev is not None:
                         try:
                             prev.update(line_json)
                             line_json = prev
-                        except:
+                        except Exception:
                             pass
                     if args.target in line_json:
                         found.append(line_json)
@@ -133,7 +133,7 @@ def main(args, print_output):
                 if args.extract_prev:
                     try:
                         prev = json.loads(line)
-                    except:
+                    except Exception:
                         pass
             best = None
             if args.best:
@@ -198,7 +198,7 @@ def main(args, print_output):
                                 print(f)
                     try:
                         metric = found[-1][args.target] if not args.best or best is None else best[args.target]
-                    except:
+                    except Exception:
                         print(found[-1])
                         raise
                     if metric is not None:
@@ -247,7 +247,7 @@ def main(args, print_output):
             distinct_vals.update(v.keys())
         try:
             distinct_vals = {int(d) for d in distinct_vals}
-        except:
+        except Exception:
             print(distinct_vals)
             print()
             print("by_val", len(by_val))
@@ -269,7 +269,7 @@ def main(args, print_output):
                 vstr += '\t{}'.format(round(x, 5) if isinstance(x, float) else x)
                 try:
                     sums[mv].append(float(x))
-                except:
+                except Exception:
                     pass
             print('{}{}'.format(kstr[:args.key_len], vstr))
         if any(len(x) > 0 for x in sums.values()):

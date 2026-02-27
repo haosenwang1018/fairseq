@@ -23,7 +23,7 @@ from fairseq.models.wav2vec.wav2vec2 import TransformerSentenceEncoderLayer
 
 try:
     from apex.normalization import FusedLayerNorm
-except:
+except Exception:
     FusedLayerNorm = nn.LayerNorm
 
 import torch.nn.functional as F

@@ -18,7 +18,7 @@ from fairseq.tasks import FairseqTask, register_task
 
 try:
     from ..data import MaeImageDataset
-except:
+except Exception:
     sys.path.append("..")
     from data import MaeImageDataset
 

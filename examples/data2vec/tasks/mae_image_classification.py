@@ -19,7 +19,7 @@ from fairseq.logging import metrics
 
 try:
     from ..data import MaeFinetuningImageDataset
-except:
+except Exception:
     sys.path.append("..")
     from data import MaeFinetuningImageDataset
 

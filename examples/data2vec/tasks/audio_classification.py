@@ -114,7 +114,7 @@ class AudioClassificationTask(AudioPretrainingTask):
             # # AUC
             # try:
             #     auc = sklearn_metrics.roc_auc_score(target[:, k], output[:, k], average=None)
-            # except:
+            # except Exception:
             #     auc = 0
             #
             # # Precisions, recalls

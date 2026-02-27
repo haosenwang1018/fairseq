@@ -41,6 +41,6 @@ if __name__ == "__main__":
                 pred_langs = [x[0] for x in predictions]
                 idx = pred_langs.index(l)
                 score = math.log(predictions[idx][-1])
-            except:
+            except Exception:
                 score = -1000
             f.write(str(score) + "\n")

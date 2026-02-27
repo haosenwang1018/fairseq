@@ -74,7 +74,7 @@ def DistributedFairseqModel(args, model, process_group, device):
                     DDPCommHookType,
                     register_ddp_comm_hook,
                 )
-            except:
+            except Exception:
                 logger.error(
                     "Could not import from torch.distributed.algorithms.ddp_comm_hooks; you may need to update your pytorch version"
                 )

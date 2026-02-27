@@ -188,7 +188,7 @@ if __name__ == '__main__':
                 try:
                     latent = model.forward_latent(**sample['net_input'])
                     latents.append(latent.detach().cpu().numpy())
-                except:
+                except Exception:
                     latent = None
                 logit = model.forward(**sample['net_input'])
                 logits.append(logit.detach().cpu().numpy())

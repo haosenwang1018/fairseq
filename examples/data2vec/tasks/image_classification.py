@@ -18,7 +18,7 @@ from fairseq.logging import metrics
 
 try:
     from ..data import ImageDataset
-except:
+except Exception:
     import sys
 
     sys.path.append("..")
